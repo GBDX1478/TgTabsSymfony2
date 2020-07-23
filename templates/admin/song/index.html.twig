@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h2 class="text-center">Admin</h2>
+
+    <h3>Liste des chansons</h3>
+
+    <div class="v-page-wrap has-right-sidebar has-one-sidebar">
+       <div class="container">
+       
+            <div class="row">
+
+        {% for message in app.flashes('success') %}
+
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+
+        {% endfor %}
+            
+                <div class="col-sm-12">
+
+                    {% for song in songs %}
+                    
+                        <div class="col-sm-4">
+                    
+                            <ul class=" masonry-items masonry-fw filterable-items col-3 row clearfix">
+                                <li class="clearfix v-portfolio-item masonry-item masonry-gallery-item chanson-francaise">
+                                    <div class="v-portfolio-item-info">
+                                        <h3 class="v-portfolio-item-title">
+                                            <a href="" class="link-to-post">{{ song.name }}</a>
+                                        </h3>
+                                        <h3>{{song.author}}</h3>
+                                        <h4>{{song.musicStyle}}</h4>
+                                        <h4>Refrain :{{ song.chordChorus1Name}}, {{ song.chordChorus2Name}}, {{ song.chordChorus3Name}}, {{ song.chordChorus4Name}}</h4>
+                                        
+                                        <a href="{{ path('admin.song.edit', {id: song.id}) }}" class="btn btn-default">Editer</a>
+
+                                        <form method="post" action="{{ path('admin.song.delete', {id: song.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ?')">
+                                            <input type="hidden" name="_method" value="DELETE">
+
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ song.id) }}">
+                                            <button class="btn btn-danger">Supprimer</button>
+                                        </form>
+                                    </div>
+                                    
+                                </li>
+                            
+                            </ul>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="button">
+                    <a href="{{ path('admin.song.new') }}" class="btn btn-default">Ajouter une chanson</a>
+                </div>
+
+            </div>
+    
+  <hr>
+
+            <h3>Liste des auteurs</h3>
+
+             <div class="row">
+            
+                <div class="col-sm-12">
+
+                    {% for authors in authors %}
+                       <div class="col-sm-4">
+                       
+                             <ul>
+                            <li>  {{authors.name}} </li>
+                            <li>
+                                <a href="{{ path('admin.author.edit', {id: authors.id}) }}" class="btn btn-default">Editer</a>
+
+                                    <form method="post" action="{{ path('admin.author.delete', {id: authors.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ authors.id) }}">
+                                    <button class="btn btn-danger">Supprimer</button>
+                                    </form>
+                            </li>
+
+                        </ul>
+
+                       </div>
+                
+                    {% endfor %}
+
+                    <div class="button">
+                        <a href="{{ path('admin.author.new') }}" class="btn btn-default">Ajouter un auteur</a>
+                    </div>
+
+                </div>
+            </div>
+
+<hr>
+
+            <h3>Liste des styles de musique</h3>
+
+             <div class="row">
+            
+                <div class="col-sm-12">
+
+                    {% for musicStyles in musicStyles %}
+                       <div class="col-sm-4">
+                        
+                            <ul>
+                                <li>  {{musicStyles.name}} </li>
+                                <li>
+                                    <a href="{{ path('admin.musicStyle.edit', {id: musicStyles.id}) }}" class="btn btn-default">Editer</a>
+
+                                    <form method="post" action="{{ path('admin.musicStyle.delete', {id: musicStyles.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ?')">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ musicStyles.id) }}">
+                                        <button class="btn btn-danger">Supprimer</button>
+                                    </form>
+                                </li>
+                            </ul>
+                       
+                       </div>
+                
+                    {% endfor %}
+
+                  
+
+                 </div> 
+
+
+                   <div class="button">
+                        <a href="{{ path('admin.musicStyle.new') }}" class="btn btn-default">Ajouter un style de musique</a>
+                    </div>
+
+    <hr>
+
+            <h3>Liste des accords</h3>
+
+             <div class="row">
+            
+                <div class="col-sm-12">
+
+                    {% for chords in chords %}
+                       <div class="col-sm-4">
+                        
+                            <ul>
+                                <li>  {{chords.name}} </li>
+                                <li>
+                                    <a href="{{ path('admin.chords.edit', {id: chords.id}) }}" class="btn btn-default">Editer</a>
+
+                                    <form method="post" action="{{ path('admin.chords.delete', {id: chords.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ?')">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ chords.id) }}">
+                                        <button class="btn btn-danger">Supprimer</button>
+                                    </form>
+                                </li>
+                            </ul>
+                       
+                       </div>
+                
+                    {% endfor %}
+
+                  
+
+                 </div> 
+
+
+                   <div class="button">
+                        <a href="{{ path('admin.chords.new') }}" class="btn btn-default">Ajouter un accord</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

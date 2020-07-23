@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML5" />
+        <meta name="description" content="True Guitar Tabs - Accueil">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}True Guitar Tabs{% endblock %}</title>
+
+            <!-- Web Fonts  -->
+            <link href="assets/css/font/OpenSans.css" rel="stylesheet" type="text/css">
+            <link href="assets/css/font/Raleway.css" rel="stylesheet" type="text/css">
+
+            <!-- Libs CSS -->
+            <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/streamline-icon.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-nav-menu.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-portfolio.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-blog.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-animation.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-bg-stylish.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/v-shortcodes.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/css/theme-responsive.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet" />
+            <link href="{{ asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
+
+            <!-- Current Page CSS -->
+            <link href="assets/plugins/rs-plugin/css/settings.css" rel="stylesheet" />
+            <link href="assets/plugins/rs-plugin/css/custom-captions.css" rel="stylesheet" />
+
+            <!-- Custom CSS -->
+            <link rel="stylesheet" href="assets/css/custom.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+             <!--Header-->
+    <div class="header-container">
+        <header class="header fixed clearfix">
+            <div class="container">
+
+                <!--Site Logo-->
+                <div class="logo" data-sticky-logo="assets/img/logo-white.png" data-normal-logo="assets/img/logo.png">
+                    <a href="{{ path('home') }}">
+                        <img alt="Venue" src="assets/img/logo.png" data-logo-height="35">
+                    </a>
+                </div>
+                <!--End Site Logo-->
+
+                <div class="navbar-collapse nav-main-collapse collapse">
+
+                    <!--Main Menu-->
+                    <nav class="nav-main mega-menu one-page-menu">
+                        <ul class="nav nav-pills nav-main" id="mainMenu">
+                            <li class="active">
+                                <a data-hash href="{{ path('home') }}"><i class="fa fa-home"></i>Accueil</a>
+                            </li>
+                            <li>
+                                <a data-hash href="#mon-objectif"><i class="fa fa-fire"></i>Mon objectif</a>
+                            </li>
+                            <li>
+                                <a data-hash href="#qui-suis-je"><i class="fa fa-question"></i>Qui suis-je</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('tabs.index') }}"><i class="fa fa-table"></i>Tablatures</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('chords.index') }}"><i class="fa fa-flash"></i>Les accords</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('songs.index') }}"><i class="fa fa-music"></i>Chansons</a>
+                            </li>
+                            <li>
+                                <a data-hash href="#contact"><i class="fa fa-location-arrow"></i>Contact</a>
+                            </li>
+
+                              {% if app.user %}
+                          
+                                <li class="nav-item">
+                                    <a href="{{ path('logout') }}" class="nav-link"> Se déconnecter</a>
+                                </li>
+                          
+                             {% endif %}
+                        </ul>
+
+                      
+
+                    </nav>
+                    <!--End Main Menu-->
+                </div>
+                <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+    <!--End Header-->
+        {% block body %}{% endblock %}
+
+ <!--Footer-Wrap-->
+        <div class="footer-wrap">
+            <footer>
+                <div class="container">
+                    <p>Sources d'images:</p>
+                    <ul>
+                        <li><a href="https://www.petiteguitare.fr/" target="_blank">petiteguitare.fr</a></li>
+                        <li><a href="https://www.myguitare.com/" target="_blank">myguitare.com</a></li>
+                        <li><a href="https://www.imusic-school.com/outils/accords-guitare/accord-barre/" target="_blank">Imusic school : accords barrés</a></li>
+                    </ul>
+                </div>
+            </footer>
+            <div class="copyright">
+                <div class="container">
+                    <p>© Copyright 2020 by True Guitar Tabs. All Rights Reserved.</p>
+                    <nav class="footer-menu std-menu">
+                        <ul class="menu">
+                            <li><a href="index.html#mon-objectif">Mon objectif</a></li>
+                            <li><a href="index.html#qui-suis-je">Qui suis-je</a></li>
+                            <li><a href="tablatures.html">Tablatures</a></li>
+                            <li><a href="accords.html">Les accords</a></li>
+                            <li><a href="chansons.html">Chansons</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!--End Footer-Wrap-->
+    </div>
+
+    <!--// BACK TO TOP //-->
+    <div id="back-to-top" class="animate-top"><i class="fa fa-angle-up"></i></div>
+
+
+
+          <!-- Libs -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
+            <script src="assets/js/jquery.easing.js"></script>
+            <script src="assets/js/jquery.fitvids.js"></script>
+            <script src="assets/js/jquery.carouFredSel.min.js"></script>
+            <script src="assets/js/jquery.validate.js"></script>
+            <script src="assets/js/theme-plugins.js"></script>
+            <script src="assets/js/jquery.isotope.min.js"></script>
+            <script src="assets/js/imagesloaded.js"></script>
+
+            <script src="assets/js/view.min.js?auto"></script>
+
+            <script src="assets/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+            <script src="assets/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+            <script src="assets/js/theme-core.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
