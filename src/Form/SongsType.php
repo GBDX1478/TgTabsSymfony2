@@ -49,16 +49,95 @@ class SongsType extends AbstractType
             ->add('chordChorus3Name')
 
 
-        
-
             ->add('chordChorus4', EntityType::class, [
                 'class' => Chords::class,
             ])
 
             ->add('chordChorus4Name')
 
+            ->add('chordChorus5', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordChorus5Name')
+
+            ->add('chordChorus6', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordChorus6Name')
+
+            ->add('chordChorus7', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordChorus7Name')
+
+            ->add('chordChorus8', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordChorus8Name')
+
+
+
+            ->add('chordVerse1', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse1Name')
+
+            ->add('chordVerse2', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse2Name')
+
+
+         
+            ->add('chordVerse3', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse3Name')
+
+
+            ->add('chordVerse4', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse4Name')
+
+            ->add('chordVerse5', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse5Name')
+
+            ->add('chordVerse6', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse6Name')
+
+            ->add('chordVerse7', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse7Name')
+
+            ->add('chordVerse8', EntityType::class, [
+                'class' => Chords::class,
+            ])
+
+            ->add('chordVerse8Name')
+
+           
+            
+
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer la chanson'])
+                
                 ;
         ;
     }

@@ -77,6 +77,126 @@ class Songs
      */
     private $chordChorus4Name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse1Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse2Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse3Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse4Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse5;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse5Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse6;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordverse6Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse7;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse7Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordVerse8;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordVerse8Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordChorus5;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordChorus5Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordChorus7;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordChorus7Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordChorus8;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordChorus8Name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chords::class)
+     */
+    private $chordChorus6;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $chordChorus6Name;
+
    
 
     public function getId(): ?int
@@ -231,6 +351,294 @@ class Songs
       public function setChordChorus4Name(?string $chordChorus4Name): self
       {
           $this->chordChorus4Name = $chordChorus4Name;
+
+          return $this;
+      }
+
+      public function getChordVerse1(): ?Chords
+      {
+          return $this->chordVerse1;
+      }
+
+      public function setChordVerse1(?Chords $chordVerse1): self
+      {
+          $this->chordVerse1 = $chordVerse1;
+
+          return $this;
+      }
+
+      public function getChordVerse1Name(): ?string
+      {
+          return $this->chordVerse1Name;
+      }
+
+      public function setChordVerse1Name(?string $chordVerse1Name): self
+      {
+          $this->chordVerse1Name = $chordVerse1Name;
+
+          return $this;
+      }
+
+      public function getChordVerse2(): ?Chords
+      {
+          return $this->chordVerse2;
+      }
+
+      public function setChordVerse2(?Chords $chordVerse2): self
+      {
+          $this->chordVerse2 = $chordVerse2;
+
+          return $this;
+      }
+
+      public function getChordVerse2Name(): ?string
+      {
+          return $this->chordVerse2Name;
+      }
+
+      public function setChordVerse2Name(?string $chordVerse2Name): self
+      {
+          $this->chordVerse2Name = $chordVerse2Name;
+
+          return $this;
+      }
+
+      public function getChordVerse3(): ?Chords
+      {
+          return $this->chordVerse3;
+      }
+
+      public function setChordVerse3(?Chords $chordVerse3): self
+      {
+          $this->chordVerse3 = $chordVerse3;
+
+          return $this;
+      }
+
+      public function getChordVerse3Name(): ?string
+      {
+          return $this->chordVerse3Name;
+      }
+
+      public function setChordVerse3Name(?string $chordVerse3Name): self
+      {
+          $this->chordVerse3Name = $chordVerse3Name;
+
+          return $this;
+      }
+
+      public function getChordVerse4(): ?Chords
+      {
+          return $this->chordVerse4;
+      }
+
+      public function setChordVerse4(?Chords $chordVerse4): self
+      {
+          $this->chordVerse4 = $chordVerse4;
+
+          return $this;
+      }
+
+      public function getChordVerse4Name(): ?string
+      {
+          return $this->chordVerse4Name;
+      }
+
+      public function setChordVerse4Name(?string $chordVerse4Name): self
+      {
+          $this->chordVerse4Name = $chordVerse4Name;
+
+          return $this;
+      }
+
+      public function getChordVerse5(): ?Chords
+      {
+          return $this->chordVerse5;
+      }
+
+      public function setChordVerse5(?Chords $chordVerse5): self
+      {
+          $this->chordVerse5 = $chordVerse5;
+
+          return $this;
+      }
+
+      public function getChordVerse5Name(): ?string
+      {
+          return $this->chordVerse5Name;
+      }
+
+      public function setChordVerse5Name(?string $chordVerse5Name): self
+      {
+          $this->chordVerse5Name = $chordVerse5Name;
+
+          return $this;
+      }
+
+      public function getChordVerse6(): ?Chords
+      {
+          return $this->chordVerse6;
+      }
+
+      public function setChordVerse6(?Chords $chordVerse6): self
+      {
+          $this->chordVerse6 = $chordVerse6;
+
+          return $this;
+      }
+
+      public function getChordverse6Name(): ?string
+      {
+          return $this->chordverse6Name;
+      }
+
+      public function setChordverse6Name(?string $chordverse6Name): self
+      {
+          $this->chordverse6Name = $chordverse6Name;
+
+          return $this;
+      }
+
+      public function getChordVerse7(): ?Chords
+      {
+          return $this->chordVerse7;
+      }
+
+      public function setChordVerse7(?Chords $chordVerse7): self
+      {
+          $this->chordVerse7 = $chordVerse7;
+
+          return $this;
+      }
+
+      public function getChordVerse7Name(): ?string
+      {
+          return $this->chordVerse7Name;
+      }
+
+      public function setChordVerse7Name(?string $chordVerse7Name): self
+      {
+          $this->chordVerse7Name = $chordVerse7Name;
+
+          return $this;
+      }
+
+      public function getChordVerse8(): ?Chords
+      {
+          return $this->chordVerse8;
+      }
+
+      public function setChordVerse8(?Chords $chordVerse8): self
+      {
+          $this->chordVerse8 = $chordVerse8;
+
+          return $this;
+      }
+
+      public function getChordVerse8Name(): ?string
+      {
+          return $this->chordVerse8Name;
+      }
+
+      public function setChordVerse8Name(?string $chordVerse8Name): self
+      {
+          $this->chordVerse8Name = $chordVerse8Name;
+
+          return $this;
+      }
+
+      public function getChordChorus5(): ?Chords
+      {
+          return $this->chordChorus5;
+      }
+
+      public function setChordChorus5(?Chords $chordChorus5): self
+      {
+          $this->chordChorus5 = $chordChorus5;
+
+          return $this;
+      }
+
+      public function getChordChorus5Name(): ?string
+      {
+          return $this->chordChorus5Name;
+      }
+
+      public function setChordChorus5Name(?string $chordChorus5Name): self
+      {
+          $this->chordChorus5Name = $chordChorus5Name;
+
+          return $this;
+      }
+
+      public function getChordChorus7(): ?Chords
+      {
+          return $this->chordChorus7;
+      }
+
+      public function setChordChorus7(?Chords $chordChorus7): self
+      {
+          $this->chordChorus7 = $chordChorus7;
+
+          return $this;
+      }
+
+      public function getChordChorus7Name(): ?string
+      {
+          return $this->chordChorus7Name;
+      }
+
+      public function setChordChorus7Name(?string $chordChorus7Name): self
+      {
+          $this->chordChorus7Name = $chordChorus7Name;
+
+          return $this;
+      }
+
+      public function getChordChorus8(): ?Chords
+      {
+          return $this->chordChorus8;
+      }
+
+      public function setChordChorus8(?Chords $chordChorus8): self
+      {
+          $this->chordChorus8 = $chordChorus8;
+
+          return $this;
+      }
+
+      public function getChordChorus8Name(): ?string
+      {
+          return $this->chordChorus8Name;
+      }
+
+      public function setChordChorus8Name(?string $chordChorus8Name): self
+      {
+          $this->chordChorus8Name = $chordChorus8Name;
+
+          return $this;
+      }
+
+      public function getChordChorus6(): ?Chords
+      {
+          return $this->chordChorus6;
+      }
+
+      public function setChordChorus6(?Chords $chordChorus6): self
+      {
+          $this->chordChorus6 = $chordChorus6;
+
+          return $this;
+      }
+
+      public function getChordChorus6Name(): ?string
+      {
+          return $this->chordChorus6Name;
+      }
+
+      public function setChordChorus6Name(?string $chordChorus6Name): self
+      {
+          $this->chordChorus6Name = $chordChorus6Name;
 
           return $this;
       }
