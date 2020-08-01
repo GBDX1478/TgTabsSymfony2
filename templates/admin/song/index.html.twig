@@ -11,19 +11,19 @@
        
             <div class="row">
 
-        {% for message in app.flashes('success') %}
+                {% for message in app.flashes('success') %}
 
-            <div class="alert alert-success">
-                {{message}}
-            </div>
+                    <div class="alert alert-success">
+                        {{message}}
+                    </div>
 
-        {% endfor %}
+                {% endfor %}
             
                 <div class="col-sm-12">
 
                     {% for song in songs %}
                     
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                     
                             <ul class=" masonry-items masonry-fw filterable-items col-3 row clearfix">
                                 <li class="clearfix v-portfolio-item masonry-item masonry-gallery-item chanson-francaise">
@@ -53,12 +53,15 @@
                     {% endfor %}
 
                 </div>
-
+                  
                 <div class="button">
-                    <a href="{{ path('admin.song.new') }}" class="btn btn-default">Ajouter une chanson</a>
+                <a href="{{ path('admin.song.new') }}" class="btn btn-default">Ajouter une chanson</a>
                 </div>
 
             </div>
+
+
+        
     
   <hr>
 
@@ -89,11 +92,14 @@
                 
                     {% endfor %}
 
-                    <div class="button">
-                        <a href="{{ path('admin.author.new') }}" class="btn btn-default">Ajouter un auteur</a>
-                    </div>
+                 
 
                 </div>
+
+                <div class="button">
+                    <a href="{{ path('admin.author.new') }}" class="btn btn-default">Ajouter un auteur</a>
+                </div>
+
             </div>
 
 <hr>

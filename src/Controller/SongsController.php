@@ -26,8 +26,10 @@ class SongsController extends AbstractController
      */
     public function index(): Response
     {
-       $songs = $this->repository->findAll();
+       $songs = $this->repository->findBy([], ['Name' => 'ASC']);
      
-        return $this->render('songs.html.twig', compact('songs'));
+        return $this->render('songs.html.twig', [
+            'songs' => $songs
+        ]);
     }
 }

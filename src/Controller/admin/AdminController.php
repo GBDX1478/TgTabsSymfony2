@@ -15,7 +15,6 @@ use App\Repository\AuthorsRepository;
 use App\Repository\ChordsRepository;
 use App\Repository\MusicStyleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,9 +40,9 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        $songs = $this->repository->findAll();
-        $authors = $this->authorsRepo->findAll();
-        $musicStyles = $this->musicStyleRepo->findAll();
+        $songs = $this->repository->findBy([], ['Name' => 'ASC']);
+        $authors = $this->authorsRepo->findBy([], ['Name' => 'ASC']);
+        $musicStyles = $this->musicStyleRepo->findBy([], ['name' => 'ASC']);
 
         $chords = $this->chordsRepo->findBy([], ['name' => 'ASC']);
      

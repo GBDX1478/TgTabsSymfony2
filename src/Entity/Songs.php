@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OrderBy;
 use App\Repository\SongsRepository;
 
 /**
@@ -19,6 +20,7 @@ class Songs
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @OrderBy({"name" = "ASC"})
      */
     private $Name;
 
@@ -29,11 +31,12 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=MusicStyle::class)
+     * @OrderBy({"name" = "ASC"})
      */
     private $musicStyle;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Link;
 
