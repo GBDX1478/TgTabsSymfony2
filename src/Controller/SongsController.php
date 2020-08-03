@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Repository\MusicStyleRepository;
 use App\Repository\SongsRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +15,10 @@ class SongsController extends AbstractController
      */
     private $repository;
 
-    public function __construct(SongsRepository $repository)
+    public function __construct(SongsRepository $repository, MusicStyleRepository $musicStyleRepository)
     {
         $this->repository = $repository;
+        $this->musicStyleRepository = $musicStyleRepository;
     }
 
     /**
@@ -27,9 +28,11 @@ class SongsController extends AbstractController
     public function index(): Response
     {
        $songs = $this->repository->findBy([], ['Name' => 'ASC']);
+       $musicStyle = $this->musicStyleRepository->findAll();
      
         return $this->render('songs.html.twig', [
-            'songs' => $songs
+            'songs' => $songs,
+            'musicStyle' => $musicStyle,
         ]);
     }
 }
