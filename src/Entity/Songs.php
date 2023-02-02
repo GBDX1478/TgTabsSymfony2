@@ -200,7 +200,15 @@ class Songs
      */
     private $chordChorus6Name;
 
-   
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nbChordsChorus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nbChordsVerse;
 
     public function getId(): ?int
     {
@@ -642,6 +650,30 @@ class Songs
       public function setChordChorus6Name(?string $chordChorus6Name): self
       {
           $this->chordChorus6Name = $chordChorus6Name;
+
+          return $this;
+      }
+
+      public function getNbChordsChorus(): ?int
+      {
+          return $this->nbChordsChorus;
+      }
+
+      public function setNbChordsChorus(int $nbChordsChorus): self
+      {
+          $this->nbChordsChorus = $nbChordsChorus;
+
+          return $this;
+      }
+
+      public function getNbChordsVerse(): ?int
+      {
+          return $this->nbChordsVerse;
+      }
+
+      public function setNbChordsVerse(int $nbChordsVerse): self
+      {
+          $this->nbChordsVerse = $nbChordsVerse;
 
           return $this;
       }

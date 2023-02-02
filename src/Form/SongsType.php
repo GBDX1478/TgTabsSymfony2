@@ -71,14 +71,12 @@ class SongsType extends AbstractType
 
             ->add('chordChorus3Name')
 
-
             ->add('chordChorus4', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
                     return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
                 }
             ])
-
             ->add('chordChorus4Name')
 
             ->add('chordChorus5', EntityType::class, [
@@ -87,7 +85,6 @@ class SongsType extends AbstractType
                     return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
                 }
             ])
-
             ->add('chordChorus5Name')
 
             ->add('chordChorus6', EntityType::class, [
@@ -117,8 +114,6 @@ class SongsType extends AbstractType
 
             ->add('chordChorus8Name')
 
-
-
             ->add('chordVerse1', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
@@ -137,8 +132,6 @@ class SongsType extends AbstractType
 
             ->add('chordVerse2Name')
 
-
-         
             ->add('chordVerse3', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
@@ -147,7 +140,6 @@ class SongsType extends AbstractType
             ])
 
             ->add('chordVerse3Name')
-
 
             ->add('chordVerse4', EntityType::class, [
                 'class' => Chords::class,
@@ -194,8 +186,8 @@ class SongsType extends AbstractType
 
             ->add('chordVerse8Name')
 
-           
-            
+            ->add('nbChordsChorus')
+            ->add('nbChordsVerse')
 
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer la chanson'])
