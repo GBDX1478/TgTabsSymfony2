@@ -58,8 +58,11 @@
 											<img src="assets/img/accords/{{chordVerse }}" style="height: 190px;"/>
 
 											<span>
-												<h5 style="text-align: center;">1 :
-													{{song.chordVerse1Name}}</h5>
+												{% set cleanedChordVerse = chordVerse|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
+
+												<h5 style="text-align: center;">
+												{{cleanedChordVerse}}</h5>
+
 											</span>
 										</div>
 									{% endfor %}
@@ -79,8 +82,11 @@
 											<img src="assets/img/accords/{{chordChorus }}" style="height: 190px;"/>
 
 											<span>
-												<h5 style="text-align: center;">1 :
-													{{song.chordVerse1Name}}</h5>
+												{% set cleanedChordChorus = chordChorus|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
+
+												<h5 style="text-align: center;">
+												{{cleanedChordChorus}}</h5>
+
 											</span>
 										</div>
 									{% endfor %}

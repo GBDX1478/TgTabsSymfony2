@@ -46,9 +46,9 @@ class SongsType extends AbstractType
 
                 'query_builder' => function (ChordsRepository $chordsRepository) {
                     return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                },
+                'placeholder' => 'Choisis'
             ])
-
             ->add('chordChorus1Name')
 
             ->add('chordChorus2', EntityType::class, [
@@ -57,11 +57,9 @@ class SongsType extends AbstractType
                     return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
                 }
             ])
-
             ->add('chordChorus2Name')
 
 
-         
             ->add('chordChorus3', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
@@ -181,9 +179,9 @@ class SongsType extends AbstractType
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
                     return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                },
+                'placeholder' => 'Choisis'
             ])
-
             ->add('chordVerse8Name')
 
             ->add('nbChordsChorus')

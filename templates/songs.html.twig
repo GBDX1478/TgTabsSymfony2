@@ -4,8 +4,7 @@
 
 {% block body %}
 
-   <div id="container">
-   
+    <div id="container">
         <div class="v-page-heading v-bg-stylish v-bg-stylish-v1">
             <div class="container">
                 <div class="row">
@@ -22,16 +21,11 @@
                 </div>
             </div>
         </div>
-
         
         <div class="v-page-wrap has-right-sidebar has-one-sidebar">
-        
             <div class="container">
-       
                 <div class="row">
-            
                     <div class="col-sm-12">
-                
                         <div class="v-portfolio-wrap">
                 
                             <div class="v-portfolio-filter-wrap row clearfix">
@@ -39,9 +33,8 @@
 
                                     <li class="all selected"><a data-filter="*" href="#"><span class="item-name">Tous</span><span class="item-count">0</span></a>
                                     </li>
-                                 
-                                    <li><a href="#" class="{{musicStyle[3]}}" data-filter=".Rock"><span class="item-name">{{musicStyle[0]}}</span><span class="item-count">0</span></a></li>
 
+                                    <li><a href="#" class="{{musicStyle[3]}}" data-filter=".Rock"><span class="item-name">{{musicStyle[0]}}</span><span class="item-count">0</span></a></li>
                                     
                                     <li><a href="#" class="{{musicStyle[1]}}" data-filter=".Rap"><span class="item-name">{{musicStyle[1]}}</span><span class="item-count">0</span></a></li>
 
@@ -51,33 +44,35 @@
 
                                     <li><a href="#" class="{{musicStyle[4]}}" data-filter=".Pop-Rock"><span class="item-name">{{musicStyle[4]}}</span><span class="item-count">0</span></a></li>
 
-
                                 </ul>
                             </div>    
-
                                 
+                            {# TODO : on rend le clique sur la chanson possible seulement si le nombre d'accords (chorus/verse) est renseigné #}
+
                             <ul class="-portfolio-items masonry-items masonry-fw filterable-items col-3 row clearfix">
                             {% for song in songs %}
                         
                                 <li class="clearfix v-portfolio-item col-sm-4 masonry-item masonry-gallery-item {{song.musicStyle}}">
                                     <div class="v-portfolio-item-info">
                                         <h3 class="v-portfolio-item-title">
-                                            <a href="{{ path(song.link)  }}" class="link-to-post">
-                                            {{song.name}} - {{song.author}}</a>
+                                            {% if song.nbChordsVerse is same as 0 %}
+                                                <p class="link-to-post link-to-details" style="background-color: rgb(202, 200, 200);">{{song.name}} - {{song.author}}</p>
+                                                <p class="hover-message">Pas encore disponible</p>
+                                            {% else %}
+                                                <a href="{{ path('chanson', {id:song.id}) }}" class="link-to-post">
+                                                {{song.name}} - {{song.author}}</a>
+                                            {% endif %}
+                                            
                                         </h3>
                                         <h5 class="v-portfolio-subtitle">{{song.musicStyle}}</h5>
                                     </div>
                                 </li>
                                 {% endfor %}
                             </ul>
-                                    
-                                                      
                         </div>
                     </div>
                 </div>
             </div>
-        
         </div>
-   </div>
-   
+    </div>
 {% endblock %}

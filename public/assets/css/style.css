@@ -5127,3 +5127,16 @@ div .nhr-short .nhr-inner-style:before {
     background-color: #FFFFFF;
 }
 /*End Hr Short*/
+
+
+/*CSS perso*/
+.hover-message {
+    display: none;
+}
+
+.link-to-details:hover .hover-message {
+    display: inline;
+    /* Afficher le message au survol du lien */
+    /* Autres styles du message au survol... */
+}
+

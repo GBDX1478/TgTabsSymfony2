@@ -6,14 +6,14 @@
     <h2>Modifier la chanson</h2>
 
     {{ form_start(form) }}
-  
+
         {{ form_rest(form) }}
-          <hr>
-       
-       <a href="{{ path('admin.song.index') }}" class="btn btn-danger">Annuler</a>
+        <hr>
+
+        <a href="{{ path('admin.song.index') }}" class="btn btn-danger">Annuler</a>
 
     {{ form_end(form) }}
 
 </div>
-   
+
 {% endblock %}

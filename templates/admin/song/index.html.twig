@@ -1,14 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<pre>
+    {{ dump() }}
+</pre>
+
 <div class="container">
     <h2 class="text-center">Admin</h2>
 
     <h3>Liste des chansons</h3>
 
     <div class="v-page-wrap has-right-sidebar has-one-sidebar">
-       <div class="container">
-       
+        <div class="container">
+
             <div class="row">
 
                 {% for message in app.flashes('success') %}
@@ -33,7 +38,20 @@
                                         </h3>
                                         <h3>{{song.author}}</h3>
                                         <h4>{{song.musicStyle}}</h4>
-                                        <h4>Refrain :{{ song.chordChorus1Name}}, {{ song.chordChorus2Name}}, {{ song.chordChorus3Name}}, {{ song.chordChorus4Name}}</h4>
+
+                                        {% if song.nbChordsChorus != 0 %}
+                                            <h4>Nombre accords refrain : {{ song.nbChordsChorus }}</h4>
+                                        {% else %}
+                                            <p>Nombres d'accords du refrain non renseigné</p>
+                                        {% endif %}
+
+                                        {% if song.nbChordsVerse != 0 %}
+                                            <h4>Nombre accords couplet :
+                                            {{ song.nbChordsVerse }}</h4>
+                                        {% else %}
+                                            <p class="red">Nombres d'accords du couplet non renseigné</p>
+                                        {% endif %}
+
                                         
                                         <a href="{{ path('admin.song.edit', {id: song.id}) }}" class="btn btn-default">Editer</a>
 

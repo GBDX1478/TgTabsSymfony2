@@ -23,6 +23,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
+    /**
+     * @var SongsRepository
+     */
+    private $repository;
+
+    /**
+     * @var AuthorsRepository
+     */
+    private $authorsRepo;
+
+    /**
+     * @var MusicStyleRepository
+     */
+    private $musicStyleRepo;
+
+    /**
+     * @var ChordsRepository
+     */
+    private $chordsRepo;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
 
     public function __construct(SongsRepository $repository, AuthorsRepository $authorsRepo, ChordsRepository $chordsRepo, MusicStyleRepository $musicStyleRepo, EntityManagerInterface $em)
     {
@@ -32,7 +56,6 @@ class AdminController extends AbstractController
         $this->chordsRepo = $chordsRepo;
         $this->em = $em;
     }
-
 
     /**
      * @Route("/admin", name="admin.song.index")
@@ -45,7 +68,7 @@ class AdminController extends AbstractController
         $musicStyles = $this->musicStyleRepo->findBy([], ['name' => 'ASC']);
 
         $chords = $this->chordsRepo->findBy([], ['name' => 'ASC']);
-     
+
         return $this->render('admin/song/index.html.twig', [
             'songs' => $songs,
             'authors' => $authors,
@@ -53,7 +76,6 @@ class AdminController extends AbstractController
             'chords' => $chords
         ]);
     }
-
 
     /**
      * @Route("admin/song/create", name="admin.song.new")
@@ -67,8 +89,8 @@ class AdminController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $this->em->persist($song);
-          
             $this->em->flush();
+
             $this->addFlash('success', 'La chanson a bien été créée');
             return $this->redirectToRoute('admin.song.index');
         }
@@ -129,7 +151,7 @@ class AdminController extends AbstractController
 
     }
 
-      /**
+    /**
      * @Route("admin/chords/create", name="admin.chords.new")
      */
     public function newChord(Request $request){
@@ -153,7 +175,6 @@ class AdminController extends AbstractController
 
     }
 
-
     /**
      * @Route("/admin/song/{id}", name="admin.song.edit", methods="GET|POST")
      */
@@ -162,11 +183,11 @@ class AdminController extends AbstractController
         $form = $this->createForm(SongsType::class, $song);
         $form->handleRequest($request);
 
-
-
         if($form->isSubmitted() && $form->isValid())
         {
-           
+
+            // dd($song);
+            $this->em->persist($song);
             $this->em->flush();
             $this->addFlash('success', "La chanson a bien été modifiée" );
             return $this->redirectToRoute('admin.song.index');
@@ -177,7 +198,6 @@ class AdminController extends AbstractController
             'song' => $song,
             'form' => $form->createView()
         ]);
-       
     } 
 
     /**
@@ -188,14 +208,13 @@ class AdminController extends AbstractController
         $form = $this->createForm(AuthorsType::class, $author);
         $form->handleRequest($request);
 
-      
         if($form->isSubmitted() && $form->isValid())
         {
             $this->em->flush();
             $this->addFlash('success', "L'auteur a bien été modifiée");
             return $this->redirectToRoute('admin.song.index');
         }
-       
+
         return $this->render('admin/author/edit.html.twig', [
             'author' => $author,
             'form' => $form->createView()
@@ -203,7 +222,7 @@ class AdminController extends AbstractController
 
     } 
 
-     /**
+    /**
      * @Route("/admin/musicStyle/{id}", name="admin.musicStyle.edit", methods="GET|POST")
      */
     public function editMusicStyle(MusicStyle $musicStyle, Request $request)
@@ -211,14 +230,13 @@ class AdminController extends AbstractController
         $form = $this->createForm(MusicStyleType::class, $musicStyle);
         $form->handleRequest($request);
 
-      
         if($form->isSubmitted() && $form->isValid())
         {
             $this->em->flush();
             $this->addFlash('success', "Le style a bien été modifié");
             return $this->redirectToRoute('admin.song.index');
         }
-       
+
         return $this->render('admin/musicStyle/edit.html.twig', [
             'musicStyle' => $musicStyle,
             'form' => $form->createView()
@@ -226,7 +244,7 @@ class AdminController extends AbstractController
 
     } 
 
-     /**
+    /**
      * @Route("/admin/chords/{id}", name="admin.chords.edit", methods="GET|POST")
      */
     public function editChords(Chords $chords, Request $request)
@@ -234,14 +252,13 @@ class AdminController extends AbstractController
         $form = $this->createForm(ChordsType::class, $chords);
         $form->handleRequest($request);
 
-      
         if($form->isSubmitted() && $form->isValid())
         {
             $this->em->flush();
             $this->addFlash('success', "L'accord a bien été modifié");
             return $this->redirectToRoute('admin.song.index');
         }
-       
+
         return $this->render('admin/chords/edit.html.twig', [
             'chords' => $chords,
             'form' => $form->createView()
@@ -261,10 +278,10 @@ class AdminController extends AbstractController
             $this->addFlash('success', 'La chanson a bien été supprimée');
         }
         return $this->redirectToRoute('admin.song.index');
-  
+
     }
 
-     /**
+    /**
      * @Route("/admin/author/{id}", name="admin.author.delete", methods="DELETE")
      */
     public function deleteAuthor(Authors $author, Request $request){

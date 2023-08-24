@@ -17,6 +17,16 @@ class SongsController extends AbstractController
      */
     private $repository;
 
+    /**
+     * @var MusicStyleRepository
+     */
+    private $musicStyleRepository;
+
+    /**
+     * @var ChordsRepository
+     */
+    private $chordsRepository;
+
     public function __construct(SongsRepository $repository, MusicStyleRepository $musicStyleRepository, ChordsRepository $chordsRepository)
     {
         $this->repository = $repository;
@@ -66,7 +76,7 @@ class SongsController extends AbstractController
         $chordVerse7 = $song->getChordVerse5();
         $chordVerse7Name = $this->getChordName($chordVerse7);
         $chordVerse8 = $song->getChordVerse6();
-        $chordVerse8Name = $this->getChordName($chordVerse7);
+        $chordVerse8Name = $this->getChordName($chordVerse8);
 
         $chordChorus1 = $song->getChordChorus1();
         $chordChorus1Name = $this->getChordName($chordChorus1);
@@ -125,7 +135,7 @@ class SongsController extends AbstractController
             $chordsVerse["chordVerse5"] = $chordVerse5Name;
         }
         if ($song->getNbChordsVerse() >= 6) {
-            $chordsVerse["chordVerse6"] = $chordVerse7Name;
+            $chordsVerse["chordVerse6"] = $chordVerse6Name;
         }
         if ($song->getNbChordsVerse() >= 7) {
             $chordsVerse["chordVerse7"] = $chordVerse7Name;
