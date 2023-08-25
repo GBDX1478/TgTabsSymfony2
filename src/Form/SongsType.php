@@ -26,16 +26,15 @@ class SongsType extends AbstractType
             ->add('Author', EntityType::class, [
                 'class' => Authors::class,
                 'query_builder' => function (AuthorsRepository $authorsRepository) {
-                    return $authorsRepository->createQueryBuilder('Authors')-> orderBy('Authors.Name', 'ASC');
+                    return $authorsRepository->createQueryBuilder('Authors')->orderBy('Authors.Name', 'ASC');
                 }
-              
             ])
 
             ->add('musicStyle', EntityType::class, [
                 'class' => MusicStyle::class,
 
                 'query_builder' => function (MusicStyleRepository $musicStyleRepository) {
-                    return $musicStyleRepository->createQueryBuilder('MusicStyle')-> orderBy('MusicStyle.name', 'ASC');
+                    return $musicStyleRepository->createQueryBuilder('MusicStyle')->orderBy('MusicStyle.name', 'ASC');
                 }
             ])
 
@@ -45,17 +44,22 @@ class SongsType extends AbstractType
                 'class' => Chords::class,
 
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
                 },
-                'placeholder' => 'Choisis'
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
             ->add('chordChorus1Name')
 
             ->add('chordChorus2', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
             ->add('chordChorus2Name')
 
@@ -63,8 +67,11 @@ class SongsType extends AbstractType
             ->add('chordChorus3', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordChorus3Name')
@@ -72,24 +79,33 @@ class SongsType extends AbstractType
             ->add('chordChorus4', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
             ->add('chordChorus4Name')
 
             ->add('chordChorus5', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
             ->add('chordChorus5Name')
 
             ->add('chordChorus6', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordChorus6Name')
@@ -97,8 +113,11 @@ class SongsType extends AbstractType
             ->add('chordChorus7', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordChorus7Name')
@@ -106,8 +125,11 @@ class SongsType extends AbstractType
             ->add('chordChorus8', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordChorus8Name')
@@ -115,8 +137,11 @@ class SongsType extends AbstractType
             ->add('chordVerse1', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse1Name')
@@ -124,8 +149,11 @@ class SongsType extends AbstractType
             ->add('chordVerse2', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse2Name')
@@ -133,8 +161,11 @@ class SongsType extends AbstractType
             ->add('chordVerse3', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse3Name')
@@ -142,8 +173,11 @@ class SongsType extends AbstractType
             ->add('chordVerse4', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse4Name')
@@ -151,8 +185,11 @@ class SongsType extends AbstractType
             ->add('chordVerse5', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse5Name')
@@ -160,8 +197,11 @@ class SongsType extends AbstractType
             ->add('chordVerse6', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse6Name')
@@ -169,8 +209,11 @@ class SongsType extends AbstractType
             ->add('chordVerse7', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
-                }
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
 
             ->add('chordVerse7Name')
@@ -178,20 +221,17 @@ class SongsType extends AbstractType
             ->add('chordVerse8', EntityType::class, [
                 'class' => Chords::class,
                 'query_builder' => function (ChordsRepository $chordsRepository) {
-                    return $chordsRepository->createQueryBuilder('Chords')-> orderBy('Chords.name', 'ASC');
+                    return $chordsRepository->createQueryBuilder('Chords')->orderBy('Chords.name', 'ASC');
                 },
-                'placeholder' => 'Choisis'
+                'choice_label' => 'name',
+                'placeholder' => 'Aucun accord choisis',
+                'required' => false,
             ])
             ->add('chordVerse8Name')
 
-            ->add('nbChordsChorus')
-            ->add('nbChordsVerse')
-
             ->add('save', SubmitType::class, [
-                'label' => 'Enregistrer la chanson'])
-                
-                ;
-        ;
+                'label' => 'Enregistrer la chanson'
+            ]);;
     }
 
     public function configureOptions(OptionsResolver $resolver)

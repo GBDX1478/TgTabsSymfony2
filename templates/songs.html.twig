@@ -4,6 +4,10 @@
 
 {% block body %}
 
+<pre>
+    {{ dump() }}
+</pre>
+
     <div id="container">
         <div class="v-page-heading v-bg-stylish v-bg-stylish-v1">
             <div class="container">
@@ -55,9 +59,12 @@
                                 <li class="clearfix v-portfolio-item col-sm-4 masonry-item masonry-gallery-item {{song.musicStyle}}">
                                     <div class="v-portfolio-item-info">
                                         <h3 class="v-portfolio-item-title">
+                                            <p>{{ song.nbChordsVerse }} {{ song.nbChordsChorus }}</p>
                                             {% if song.nbChordsVerse is same as 0 %}
-                                                <p class="link-to-post link-to-details" style="background-color: rgb(202, 200, 200);">{{song.name}} - {{song.author}}</p>
-                                                <p class="hover-message">Pas encore disponible</p>
+                                                <div>
+                                                    <p class="link-to-post link-to-details" >{{song.name}} - {{song.author}} </p>
+                                                    <p style="background-color: rgb(202, 200, 200);">(fiche de chanson pas disponible pour le moment)</p>
+                                                </div>
                                             {% else %}
                                                 <a href="{{ path('chanson', {id:song.id}) }}" class="link-to-post">
                                                 {{song.name}} - {{song.author}}</a>

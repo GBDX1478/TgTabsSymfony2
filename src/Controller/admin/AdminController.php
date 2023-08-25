@@ -69,6 +69,36 @@ class AdminController extends AbstractController
 
         $chords = $this->chordsRepo->findBy([], ['name' => 'ASC']);
 
+
+        foreach ($songs as $songData) {
+            // dd('song1',$songData, $songData->getChordVerse1());
+            $songCountChordsChorus = 0;
+            $songCountChordsVerse = 0;
+
+            for ($i = 1; $i <= 8; $i++) {
+                $verseChord = $songData->{"getChordVerse" . $i}();
+                if ($verseChord !== null && $verseChord->getName() !== null) {
+                    //dd('verse count');
+                    $songCountChordsVerse++;
+                }
+
+                $chorusChord = $songData->{"getChordChorus" . $i}();
+                if (
+                    $chorusChord !== null && $chorusChord->getName() !== null
+                ) {
+                    //dd('chorus count');
+                    $songCountChordsChorus++;
+                }
+            }
+
+            $songData->setNbChordsVerse($songCountChordsVerse);
+            $songData->setNbChordsChorus($songCountChordsChorus);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($songData);
+            $entityManager->flush();
+        }
+
         return $this->render('admin/song/index.html.twig', [
             'songs' => $songs,
             'authors' => $authors,
@@ -185,8 +215,6 @@ class AdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-
-            // dd($song);
             $this->em->persist($song);
             $this->em->flush();
             $this->addFlash('success', "La chanson a bien été modifiée" );

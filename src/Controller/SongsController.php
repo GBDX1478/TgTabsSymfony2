@@ -15,7 +15,7 @@ class SongsController extends AbstractController
     /**
      * @var SongsRepository
      */
-    private $repository;
+    private $songRepository;
 
     /**
      * @var MusicStyleRepository
@@ -27,9 +27,9 @@ class SongsController extends AbstractController
      */
     private $chordsRepository;
 
-    public function __construct(SongsRepository $repository, MusicStyleRepository $musicStyleRepository, ChordsRepository $chordsRepository)
+    public function __construct(SongsRepository $songRepository, MusicStyleRepository $musicStyleRepository, ChordsRepository $chordsRepository)
     {
-        $this->repository = $repository;
+        $this->songRepository = $songRepository;
         $this->musicStyleRepository = $musicStyleRepository;
         $this->chordsRepository = $chordsRepository;
     }
@@ -40,8 +40,51 @@ class SongsController extends AbstractController
      */
     public function index(): Response
     {
-        $songs = $this->repository->findBy([], ['Name' => 'ASC']);
+        // $songs = $this->songRepository->findBy([], ['Name' => 'ASC']);
+
+        $songs = $this->songRepository->createQueryBuilder('s')
+        ->leftJoin('s.chordChorus1', 'cc1') // Jointure avec la relation chordChorus
+        ->addSelect('cc1') 
+        ->orderBy('s.Name', 'ASC')
+        ->getQuery()
+        ->getResult();
+
+        //dd('totosto', $songs);
+
         $musicStyle = $this->musicStyleRepository->findAll();
+
+        //TODO : pour chaque chanson, mettre un système qui compte les accords renseignés du couplet et refrain, et enregistre ces valuers dans le champ correspondant de la table song en bdd
+
+        //dd('songs', $songs);
+
+        // dans songs, boucler sur chaque chanson et pour chaque propriété commençant par chord, si le name est null, on ajoute un au compteur
+        foreach($songs as $songData){
+            // dd('song1',$songData, $songData->getChordVerse1());
+            $songCountChordsChorus = 0;
+            $songCountChordsVerse = 0;
+
+            for ($i = 1; $i <= 8; $i++) {
+                $verseChord = $songData->{"getChordVerse" . $i}();
+                if ($verseChord !== null && $verseChord->getName() !== null) {
+                    //dd('verse count');
+                    $songCountChordsVerse++;
+                }
+
+                $chorusChord = $songData->{"getChordChorus" . $i}();
+                if ($chorusChord !== null && $chorusChord->getName() !== null
+                ){
+                    //dd('chorus count');
+                    $songCountChordsChorus++;
+                }
+            }
+
+            $songData->setNbChordsVerse($songCountChordsVerse);
+            $songData->setNbChordsChorus($songCountChordsChorus);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($songData);
+            $entityManager->flush();
+        }
 
         return $this->render('songs.html.twig', [
             'songs' => $songs,

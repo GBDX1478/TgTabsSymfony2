@@ -47,11 +47,13 @@ class Songs
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\JoinColumn
      */
     private $chordChorus1Name;
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @@ORM\JoinColumn(name="chordChorus2", referencedColumnName="id", nullable=true)
      */
     private $chordChorus2;
 
@@ -62,6 +64,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus3;
 
@@ -72,6 +75,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus4;
 
@@ -82,6 +86,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse1;
 
@@ -92,6 +97,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse2;
 
@@ -102,6 +108,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse3;
 
@@ -112,6 +119,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse4;
 
@@ -122,6 +130,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse5;
 
@@ -132,6 +141,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse6;
 
@@ -142,6 +152,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse7;
 
@@ -152,6 +163,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordVerse8;
 
@@ -162,6 +174,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus5;
 
@@ -172,6 +185,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus7;
 
@@ -182,6 +196,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus8;
 
@@ -192,6 +207,7 @@ class Songs
 
     /**
      * @ORM\ManyToOne(targetEntity=Chords::class)
+     * @ORM\JoinColumn
      */
     private $chordChorus6;
 

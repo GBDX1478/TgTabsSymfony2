@@ -22,6 +22,11 @@ class Chords
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $name_to_show;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,5 +49,17 @@ class Chords
         return $this->name;
         // to show the id of the Category in the select
         // return $this->id;
+    }
+
+    public function getNameToShow(): ?string
+    {
+        return $this->name_to_show;
+    }
+
+    public function setNameToShow(?string $name_to_show): self
+    {
+        $this->name_to_show = $name_to_show;
+
+        return $this;
     }
 }

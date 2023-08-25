@@ -3,5 +3,8 @@ TrueGuitarTabs : Cahier des charges des évolutions
 12/02/2023 : 
 
 TODO : 
+-factorisation de la page de chanson
 - comptage auto du nombre d'accords renseignés lors de l'update d'une chanson (si l'accord n'est pas null on le compte) pour chaque chanson
 ==> affichage du bon nombre d'accords dans la fiocher chanson sans avoir à le renseigner manuellement
+
+- faire en sorte de supprimer les propriétés chordName ==> prendre le nom à afficher dans la propriété (à créer) nom_affichage
