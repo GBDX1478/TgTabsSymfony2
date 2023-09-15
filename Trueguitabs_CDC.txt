@@ -8,3 +8,7 @@ TODO :
 ==> affichage du bon nombre d'accords dans la fiocher chanson sans avoir à le renseigner manuellement
 
 - faire en sorte de supprimer les propriétés chordName ==> prendre le nom à afficher dans la propriété (à créer) nom_affichage
+
+
+
+-TEST
