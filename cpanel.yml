@@ -1,0 +1,5 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/public_html/
+    - /bin/cp -R templates2 $DEPLOYPATH
+    - /bin/cp -R src $DEPLOYPATH
