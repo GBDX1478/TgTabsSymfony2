@@ -1,5 +1,5 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/public_html/
+    - export DEPLOYPATH=/home/bagu2650/public_html/
     - /bin/cp -R templates2 $DEPLOYPATH
     - /bin/cp -R src $DEPLOYPATH
