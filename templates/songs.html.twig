@@ -4,10 +4,6 @@
 
 {% block body %}
 
-<pre>
-    {{ dump() }}
-</pre>
-
     <div id="container">
         <div class="v-page-heading v-bg-stylish v-bg-stylish-v1">
             <div class="container">
@@ -53,14 +49,14 @@
                                 
                             {# TODO : on rend le clique sur la chanson possible seulement si le nombre d'accords (chorus/verse) est renseigné #}
 
-                            <ul class="-portfolio-items masonry-items masonry-fw filterable-items col-3 row clearfix">
+                            <ul class="-portfolio-items masonry-items masonry-fw filterable-items row clearfix">
                             {% for song in songs %}
                         
-                                <li class="clearfix v-portfolio-item col-sm-4 masonry-item masonry-gallery-item {{song.musicStyle}}">
+                                <li class="clearfix v-portfolio-item col-sm-3 masonry-item masonry-gallery-item {{song.musicStyle}}">
                                     <div class="v-portfolio-item-info">
                                         <h3 class="v-portfolio-item-title">
-                                            <p>{{ song.nbChordsVerse }} {{ song.nbChordsChorus }}</p>
-                                            {% if song.nbChordsVerse is same as 0 %}
+                                            {# <p>{{ song.nbChordsVerse }} {{ song.nbChordsChorus }}</p> #}
+                                            {% if song.nbChordsChorus is same as 0 %}
                                                 <div>
                                                     <p class="link-to-post link-to-details" >{{song.name}} - {{song.author}} </p>
                                                     <p style="background-color: rgb(202, 200, 200);">(fiche de chanson pas disponible pour le moment)</p>
