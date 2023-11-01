@@ -49,13 +49,9 @@ class SongsController extends AbstractController
         ->getQuery()
         ->getResult();
 
-        //dd('totosto', $songs);
-
         $musicStyle = $this->musicStyleRepository->findAll();
 
-        //TODO : pour chaque chanson, mettre un système qui compte les accords renseignés du couplet et refrain, et enregistre ces valuers dans le champ correspondant de la table song en bdd
-
-        //dd('songs', $songs);
+        //TODO : pour chaque chanson, mettre un système qui compte les accords renseignés du couplet et refrain, et enregistre ces valeurs dans le champ correspondant de la table song en bdd
 
         // dans songs, boucler sur chaque chanson et pour chaque propriété commençant par chord, si le name est null, on ajoute un au compteur
         foreach($songs as $songData){
@@ -194,11 +190,16 @@ class SongsController extends AbstractController
         ]);
     }
 
-    public function getChordName($chord)
+    public function getChordName(?object $chord)
     {
-        $chordData = $this->chordsRepository->findOneById($chord);
-        $chordName = $chordData->getName();
 
-        return $chordName;
+        $chordData = $this->chordsRepository->findOneById($chord);
+
+        if($chordData !== null){
+            $chordName = $chordData->getName();
+
+            return $chordName;
+        }
+
     }
 }
