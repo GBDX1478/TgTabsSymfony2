@@ -137,6 +137,8 @@ class SongsController extends AbstractController
         $chordsChorus = [];
         $chordsVerse = [];
 
+        dd('song', $song);
+
         $chordsChorus["chordChorus1"] = $chordChorus1Name;
         if ($song->getNbChordsChorus() >= 2) {
             $chordsChorus["chordChorus2"] = $chordChorus2Name;
