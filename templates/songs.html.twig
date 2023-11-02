@@ -49,7 +49,7 @@
                                 
                             {# TODO : on rend le clique sur la chanson possible seulement si le nombre d'accords (chorus/verse) est renseigné #}
 
-                            {# <p style="color: red;"> Les fiches de chanson ne sont pas disponible pour le moment (site en maintenance) </p> #}
+                            <p style="color: red;"> Les fiches de chanson ne sont pas disponible pour le moment (site en maintenance) </p>
 
                             <ul class="-portfolio-items masonry-items masonry-fw filterable-items row clearfix">
                             {% for song in songs %}
@@ -62,11 +62,13 @@
                                             {% if song.nbChordsChorus is same as 0 %}
                                                 <div>
                                                     <p class="link-to-post link-to-details" >{{song.name}} - {{song.author}} </p>
-                                                    
+
                                                     <p style="background-color: rgb(202, 200, 200);">(fiche de chanson pas disponible pour le moment)</p>
                                                 </div>
                                             {% else %}
-                                                <a href="{{ path('chanson', {id:song.id}) }}" class="link-to-post">
+                                                {# <a href="{{ path('chanson', {id:song.id}) }}" class="link-to-post">
+                                                {{song.name}} - {{song.author}}</a> #}
+                                                <a href="#" class="link-to-post">
                                                 {{song.name}} - {{song.author}}</a>
                                                 
                                             {% endif %}
