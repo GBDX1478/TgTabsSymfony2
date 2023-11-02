@@ -2,6 +2,10 @@
 
 {% block body %}
 
+<pre>
+	{{ dump() }}
+</pre>
+
 	<div class="v-page-heading v-bg-stylish v-bg-stylish-v1">
 		<div class="container">
 			<div class="row">
@@ -47,32 +51,38 @@
 
 						<div class="related-projects clearfix">
 
-							<h3 class="v-heading v-center-heading">
-								<span>Couplet</span>
-							</h3>
-							<div class="row center">
-								<div class="col-sm-12">
+							{% if song.nbChordsVerse > 0 %}
+								<h3 class="v-heading v-center-heading">
+									<span>Couplet</span>
+								</h3>
+								<div class="row center">
+									<div class="col-sm-12">
 
-									{% for chordVerse in chordsVerse %}
-										<div class="col-sm-3">
-											<img src="assets/img/accords/{{chordVerse }}" style="height: 190px;"/>
+										{% for chordVerse in chordsVerse %}
+											<div class="col-sm-3">
+												<img src="assets/img/accords/{{chordVerse }}" style="height: 190px;"/>
 
-											<span>
-												{% set cleanedChordVerse = chordVerse|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
+												<span>
+													{% set cleanedChordVerse = chordVerse|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
 
-												<h5 style="text-align: center;">
-												{{cleanedChordVerse}}</h5>
+													<h5 style="text-align: center;">
+													{{cleanedChordVerse}}</h5>
 
-											</span>
-										</div>
-									{% endfor %}
+												</span>
+											</div>
+										{% endfor %}
+									</div>
 								</div>
-							</div>
+							{% endif %}
 						</div>
 
 						<div class="related-projects clearfix">
 							<h3 class="v-heading v-center-heading">
+								{% if song.nbChordsVerse > 0 %}
 								<span>Refrain</span>
+								{% else %}
+									<span>Couplet / Refrain</span>
+								{% endif %}
 							</h3>
 							<div class="row center">
 								<div class="col-sm-12">
@@ -94,7 +104,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="container">
 							<div class="v-spacer col-sm-12 v-height-big"></div>
 						</div>

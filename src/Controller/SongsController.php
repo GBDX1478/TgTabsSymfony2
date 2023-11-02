@@ -55,21 +55,18 @@ class SongsController extends AbstractController
 
         // dans songs, boucler sur chaque chanson et pour chaque propriété commençant par chord, si le name est null, on ajoute un au compteur
         foreach($songs as $songData){
-            // dd('song1',$songData, $songData->getChordVerse1());
             $songCountChordsChorus = 0;
             $songCountChordsVerse = 0;
 
             for ($i = 1; $i <= 8; $i++) {
                 $verseChord = $songData->{"getChordVerse" . $i}();
                 if ($verseChord !== null && $verseChord->getName() !== null) {
-                    //dd('verse count');
                     $songCountChordsVerse++;
                 }
 
                 $chorusChord = $songData->{"getChordChorus" . $i}();
                 if ($chorusChord !== null && $chorusChord->getName() !== null
                 ){
-                    //dd('chorus count');
                     $songCountChordsChorus++;
                 }
             }
@@ -137,7 +134,7 @@ class SongsController extends AbstractController
         $chordsChorus = [];
         $chordsVerse = [];
 
-        dd('song', $song);
+        //dd('song', $song);
 
         $chordsChorus["chordChorus1"] = $chordChorus1Name;
         if ($song->getNbChordsChorus() >= 2) {
