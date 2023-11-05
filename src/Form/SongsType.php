@@ -39,6 +39,9 @@ class SongsType extends AbstractType
             ])
 
             ->add('link')
+            
+            // lien vidéo youtube
+            ->add('linkVideo')
 
             ->add('chordChorus1', EntityType::class, [
                 'class' => Chords::class,

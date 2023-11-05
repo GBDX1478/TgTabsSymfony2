@@ -34,43 +34,22 @@
 				<div class="col-sm-12">
 
 					<article class="portfolio-article">
-						<div class="v-portfolio-item-content clearfix">
-							<div
-								class="row">
-									<div class="col-sm-8 col-lg-offset-2">
-										<figure class="media-wrap">
-										{# <iframe width="560" height="315" src="#" 			frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
-										</figure>
-									</div> 
-							</div>
-						</div>
 
-						<div class="related-projects clearfix">
+						{% if song.linkVideo is not null and song.linkVideo is not empty %}
+							<div class="v-portfolio-item-content clearfix">
+								<div
+									class="row">
+										<div class="col-sm-8 col-lg-offset-2">
 
-							{% if song.nbChordsVerse > 0 %}
-								<h3 class="v-heading v-center-heading">
-									<span>Couplet</span>
-								</h3>
-								<div class="row center">
-									<div class="col-sm-12">
+											<figure class="media-wrap">
 
-										{% for chordVerse in chordsVerse %}
-											<div class="col-sm-3">
-												<img src="assets/img/accords/{{chordVerse }}" style="height: 190px;"/>
+											<iframe width="560" height="315" src="{{song.linkVideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-												<span>
-													{% set cleanedChordVerse = chordVerse|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
-
-													<h5 style="text-align: center;">
-													{{cleanedChordVerse}}</h5>
-
-												</span>
-											</div>
-										{% endfor %}
-									</div>
+											</figure>
+										</div> 
 								</div>
-							{% endif %}
-						</div>
+							</div>
+						{% endif %}
 
 						<div class="related-projects clearfix">
 							<h3 class="v-heading v-center-heading">
@@ -100,6 +79,33 @@
 								</div>
 							</div>
 						</div>
+
+						{% if song.nbChordsVerse > 0 %}
+							<div class="related-projects clearfix">
+								<h3 class="v-heading v-center-heading">
+									<span>Couplet</span>
+								</h3>
+								<div class="row center">
+									<div class="col-sm-12">
+
+										{% for chordVerse in chordsVerse %}
+											<div class="col-sm-3">
+												<img src="assets/img/accords/{{chordVerse }}" style="height: 190px;"/>
+
+												<span>
+													{% set cleanedChordVerse = chordVerse|split('.')|slice(0, -1)|join('')|replace({'_': ' '}) %}
+
+													<h5 style="text-align: center;">
+													{{cleanedChordVerse}}</h5>
+
+												</span>
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						{% endif %}
+						
 						<div class="container">
 							<div class="v-spacer col-sm-12 v-height-big"></div>
 						</div>
