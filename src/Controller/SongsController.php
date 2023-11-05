@@ -99,19 +99,26 @@ class SongsController extends AbstractController
         // TODO : récupérer les valeurs de tous les accords de la chanson et les mettre dans un tableau
         $chordVerse1 = $song->getChordVerse1();
         $chordVerse1Name = $this->getChordName($chordVerse1);
+
         $chordVerse2 = $song->getChordVerse2();
         $chordVerse2Name = $this->getChordName($chordVerse2);
+
         $chordVerse3 = $song->getChordVerse3();
         $chordVerse3Name = $this->getChordName($chordVerse3);
+
         $chordVerse4 = $song->getChordVerse4();
         $chordVerse4Name = $this->getChordName($chordVerse4);
+
         $chordVerse5 = $song->getChordVerse5();
         $chordVerse5Name = $this->getChordName($chordVerse5);
+
         $chordVerse6 = $song->getChordVerse6();
         $chordVerse6Name = $this->getChordName($chordVerse6);
-        $chordVerse7 = $song->getChordVerse5();
+
+        $chordVerse7 = $song->getChordVerse7();
         $chordVerse7Name = $this->getChordName($chordVerse7);
-        $chordVerse8 = $song->getChordVerse6();
+        
+        $chordVerse8 = $song->getChordVerse8();
         $chordVerse8Name = $this->getChordName($chordVerse8);
 
         $chordChorus1 = $song->getChordChorus1();
@@ -160,6 +167,7 @@ class SongsController extends AbstractController
         }
 
         $chordsVerse["chordVerse1"] = $chordVerse1Name;
+
         if ($song->getNbChordsVerse() >= 2) {
             $chordsVerse["chordVerse2"] = $chordVerse2Name;
         }
