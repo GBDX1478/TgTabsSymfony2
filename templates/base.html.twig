@@ -56,14 +56,14 @@
                     <!--Main Menu-->
                     <nav class="nav-main mega-menu one-page-menu">
                         <ul class="nav nav-pills nav-main" id="mainMenu">
-                            <li class="active">
-                                <a data-hash href="{{ path('home') }}"><i class="fa fa-home"></i>Accueil</a>
+                            <li>
+                                <a href="{{ path('home') }}"><i class="fa fa-home"></i>Accueil</a>
                             </li>
                             <li>
-                                <a data-hash href="#mon-objectif"><i class="fa fa-fire"></i>Mon objectif</a>
+                                <a href="{{ path('home') }}#mon-objectif"><i class="fa fa-fire"></i>Mon objectif</a>
                             </li>
                             <li>
-                                <a data-hash href="#qui-suis-je"><i class="fa fa-question"></i>Qui suis-je</a>
+                                <a href="{{ path('home') }}#qui-suis-je"><i class="fa fa-question"></i>Qui suis-je</a>
                             </li>
                             <li>
                                 <a href="{{ path('tabs.index') }}"><i class="fa fa-table"></i>Tablatures</a>
@@ -75,19 +75,17 @@
                                 <a href="{{ path('songs.index') }}"><i class="fa fa-music"></i>Chansons</a>
                             </li>
                             <li>
-                                <a data-hash href="#contact"><i class="fa fa-location-arrow"></i>Contact</a>
+                                <a href="{{ path('home') }}#contact"><i class="fa fa-location-arrow"></i>Contact</a>
                             </li>
 
-                              {% if app.user %}
-                          
+                            {% if app.user %}
+
                                 <li class="nav-item">
                                     <a href="{{ path('logout') }}" class="nav-link"> Se déconnecter</a>
                                 </li>
-                          
-                             {% endif %}
-                        </ul>
 
-                      
+                            {% endif %}
+                        </ul>
 
                     </nav>
                     <!--End Main Menu-->
@@ -118,12 +116,12 @@
                     <p>© Copyright 2020 by True Guitar Tabs. All Rights Reserved.</p>
                     <nav class="footer-menu std-menu">
                         <ul class="menu">
-                            <li><a href="index.html#mon-objectif">Mon objectif</a></li>
-                            <li><a href="index.html#qui-suis-je">Qui suis-je</a></li>
+                            <li><a href="#mon-objectif">Mon objectif</a></li>
+                            <li><a href="#qui-suis-je">Qui suis-je</a></li>
                             <li><a href="tablatures.html">Tablatures</a></li>
                             <li><a href="accords.html">Les accords</a></li>
                             <li><a href="chansons.html">Chansons</a></li>
-                            <li><a href="index.html#contact">Contact</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -137,7 +135,7 @@
 
 
 
-          <!-- Libs -->
+            <!-- Libs -->
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/bootstrap.min.js"></script>
             <script src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
